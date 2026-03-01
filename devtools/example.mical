@@ -1,0 +1,69 @@
+#!/usr/bin/env mical
+
+# This is a comment
+#
+#include path/to/file
+#version 1.0
+
+# --- Booleans ---
+enabled true
+disabled false
+true_key value
+not-bool true story
+
+# --- Integers ---
+count 42
+negative -10
+positive +7
+hex 0xFF
+binary 0b1010
+octal 0o777
+underscore 1_000_000
+hex_under 0xDEAD_BEEF
+42 this-is-a-key
+not-int 42 items
+
+# --- Quoted strings ---
+greeting "hello world"
+single 'single quoted'
+empty ""
+escape "hello\nworld"
+backslash "path\\to\\file"
+tab "col1\tcol2"
+quotes "say \"hi\""
+mixed 'can\'t stop'
+
+# --- Line strings ---
+path /usr/local/bin
+note hello # not a comment
+raw { inline braces }
+
+# --- Block strings ---
+literal |
+  first line
+  second line
+
+folded >
+  paragraph one
+  paragraph two
+
+keep-trailing |+
+  content
+
+strip-trailing >-
+  content
+
+# --- Prefix blocks ---
+server {
+  .host localhost
+  .port 8080
+  .nested {
+    .deep value
+  }
+}
+
+a. {
+  b. {
+    c value
+  }
+}
