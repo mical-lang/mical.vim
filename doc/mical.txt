@@ -1,0 +1,53 @@
+*mical.txt*	Vim plugin for the mical configuration language
+
+==============================================================================
+CONTENTS                                                     *mical-contents*
+
+    1. Introduction .............. |mical-introduction|
+    2. Syntax Highlighting ....... |mical-syntax|
+    3. Filetype Settings ......... |mical-ftplugin|
+
+==============================================================================
+1. Introduction                                          *mical-introduction*
+
+This plugin provides Vim/Neovim support for the mical configuration language.
+
+Features:
+- Filetype detection for `.mical` files
+- Syntax highlighting
+- Filetype-specific settings (comments, indentation)
+
+For the mical language specification, see:
+https://mical-lang.github.io/mical/
+
+==============================================================================
+2. Syntax Highlighting                                        *mical-syntax*
+
+The following elements are highlighted:
+
+  Comments           `# comment text`
+  Directives         `#include path/to/file`
+  Shebang            `#!/usr/bin/env mical`
+  Quoted strings     `"hello\nworld"` and `'single'`
+  Escape sequences   `\\` `\"` `\'` `\n` `\r` `\t`
+  Booleans           `true` and `false` (in value position only)
+  Integers           Decimal, hex (`0xFF`), binary (`0b10`), octal (`0o77`)
+  Block strings      `|`, `>`, `|+`, `|-`, `>+`, `>-` headers
+  Prefix blocks      `{` ... `}` braces
+
+Booleans and integers are highlighted only when they constitute the entire
+value of an entry, following mical's type determination rules.
+
+==============================================================================
+3. Filetype Settings                                       *mical-ftplugin*
+
+The ftplugin sets the following buffer-local options:
+
+  'commentstring'    `# %s`
+  'comments'         `:#`
+  'tabstop'          2
+  'shiftwidth'       2
+  'softtabstop'      2
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:
